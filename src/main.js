@@ -4,8 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import FBSignInButton from 'vue-facebook-signin-button'
 
 Vue.use(Vuetify)
+Vue.use(FBSignInButton)
 
 Vue.config.productionTip = false
 
