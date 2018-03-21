@@ -1,11 +1,17 @@
 <template>
   <v-app>
-    <!--<fb-signin-button
-      :params="fbSignInParams"
-      @success="onSignInSuccess"
-      @error="onSignInError">
-      Sign in with Facebook
-    </fb-signin-button>-->
+    <v-container fluid>
+      <v-layout row style="color: #8a94a3">
+        <v-flex xs6 offset-xs1>
+	  <fb-signin-button
+	    :params="fbSignInParams"
+	    @success="onSignInSuccess"
+	    @error="onSignInError">
+	    Sign in with Facebook
+	  </fb-signin-button>
+        </v-flex>
+      </v-layout>
+    </v-container>
     <v-container grid-list-md>
       <h2>Address</h2>
       <v-layout row>
@@ -82,7 +88,7 @@ export default {
   data () {
     return {
       fbSignInParams: {
-        scope: 'email,user_likes',
+        scope: 'email,user_likes,user_posts',
         return_scopes: true
       }
     }
@@ -109,5 +115,6 @@ export default {
     border-radius: 3px;
     background-color: #4267b2;
     color: #fff;
+    cursor: pointer;
   }
 </style>
