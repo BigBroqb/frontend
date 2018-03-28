@@ -98,6 +98,7 @@ export default {
   },
   methods: {
     onSignInSuccess (response) {
+      console.log(response)
       console.log('hello')
     },
     onSignInError (error) {
