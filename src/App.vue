@@ -96,6 +96,30 @@ export default {
   name: 'App',
   components: {
   },
+  created: function() {
+    console.log('created main');
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '216064342468691',
+        xfbml      : true,
+        version    : 'v2.7'
+      });
+
+      //This function should be here, inside window.fbAsyncInit
+      FB.getLoginStatus(function(response) {
+        console.log(response);
+     });
+
+   };
+
+    (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  },
   methods: {
     onSignInSuccess (response) {
       console.log(response)

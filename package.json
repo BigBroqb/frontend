@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "requirejs-vue": "^1.1.5",
     "vue": "^2.5.2",
     "vue-facebook-signin-button": "^1.0.1",
     "vuetify": "^1.0.0"
