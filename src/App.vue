@@ -88,7 +88,7 @@ export default {
   data () {
     return {
       fbSignInParams: {
-        scope: 'email,user_likes,user_posts',
+        scope: 'user_birthday,user_location,user_likes,user_friends,user_posts,email,public_profile',
         return_scopes: true
       }
     }
@@ -102,7 +102,7 @@ export default {
       FB.init({
         appId      : '216064342468691',
         xfbml      : true,
-        version    : 'v2.7'
+        version    : 'v2.12'
       });
 
       //This function should be here, inside window.fbAsyncInit
