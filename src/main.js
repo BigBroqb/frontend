@@ -5,6 +5,7 @@ import App from './App'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import FBSignInButton from 'vue-facebook-signin-button'
+const VueResource = require('vue-resource');
 
       window.fbAsyncInit = function() {
         FB.init({
@@ -27,6 +28,7 @@ import FBSignInButton from 'vue-facebook-signin-button'
 
 Vue.use(Vuetify)
 Vue.use(FBSignInButton)
+Vue.use(VueResource);
 
 Vue.config.productionTip = false
 
