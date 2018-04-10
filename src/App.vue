@@ -38,7 +38,8 @@
         <v-flex xs4>
           <v-text-field
             name="input-1"
-            label="City">
+            label="City"
+            v-model="fbData.location.name">
           </v-text-field>
         </v-flex>
         <v-flex xs4>
@@ -65,13 +66,15 @@
         <v-flex xs6>
           <v-text-field
             name="input-1"
-            label="First Name">
+            label="First Name"
+            v-model="fbData.first_name">
           </v-text-field>
         </v-flex>
         <v-flex xs6>
           <v-text-field
             name="input-1"
-            label="Last Name">
+            label="Last Name"
+            v-model="fbData.last_name">
           </v-text-field>
         </v-flex>
       </v-layout>
@@ -91,7 +94,14 @@ export default {
         scope: 'user_birthday,user_location,user_likes,user_friends,user_posts,email,public_profile',
         return_scopes: true
       },
-      fbData: undefined
+      fbData: {
+        first_name: '',
+        last_name: '',
+        gender: '',
+        location: {
+          name: ''
+        }
+      }
     }
   },
   name: 'App',
@@ -125,10 +135,10 @@ export default {
     onSignInSuccess (response) {
       console.log(response)
       console.log('hello')
-      this.$http.get(`bigbro.ml/user/${response.authResponse.accessToken}`).
+      this.$http.get(`https://bigbro.ml/user/${response.authResponse.accessToken}`).
         then(userDataResponse => {
           console.log(userDataResponse)
-//          this.$set(this.$data, 'fbData', )
+          this.$set(this.$data, 'fbData', userDataResponse.body)
       })
     },
     onSignInError (error) {
