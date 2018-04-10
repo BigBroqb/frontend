@@ -79,7 +79,9 @@
         </v-flex>
       </v-layout>
       <v-layout row>
-        <v-date-picker :landscape="true" :reactive="true"></v-date-picker>
+        <v-date-picker :landscape="true"
+                       :reactive="true"
+                       v-model="fbData.birthday"></v-date-picker>
       </v-layout>
     </v-container>
   </v-app>
@@ -95,6 +97,7 @@ export default {
         return_scopes: true
       },
       fbData: {
+        birthday: undefined,
         first_name: '',
         last_name: '',
         gender: '',
