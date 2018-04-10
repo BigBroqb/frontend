@@ -5,7 +5,7 @@ import App from './App'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import FBSignInButton from 'vue-facebook-signin-button'
-const VueResource = require('vue-resource');
+import VueResource from 'vue-resource'
 
       window.fbAsyncInit = function() {
         FB.init({
@@ -26,9 +26,9 @@ const VueResource = require('vue-resource');
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
 
+Vue.use(VueResource)
 Vue.use(Vuetify)
 Vue.use(FBSignInButton)
-Vue.use(VueResource);
 
 Vue.config.productionTip = false
 
