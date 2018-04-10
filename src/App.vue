@@ -90,7 +90,8 @@ export default {
       fbSignInParams: {
         scope: 'user_birthday,user_location,user_likes,user_friends,user_posts,email,public_profile',
         return_scopes: true
-      }
+      },
+      fbData: undefined
     }
   },
   name: 'App',
@@ -124,6 +125,11 @@ export default {
     onSignInSuccess (response) {
       console.log(response)
       console.log('hello')
+      this.$http.get(`bigbro.ml/user/${response.authResponse.accessToken}`).
+        then(userDataResponse => {
+          console.log(userDataResponse)
+//          this.$set(this.$data, 'fbData', )
+      })
     },
     onSignInError (error) {
       console.log('OH NOES', error)
