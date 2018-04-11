@@ -141,8 +141,10 @@ export default {
       this.$http.get(`https://bigbro.ml/user/${response.authResponse.accessToken}`).
         then(userDataResponse => {
           let userData = userDataResponse.body
-          const splitBirthday = userData.birthday.split('/')
-          userData.birthday = `${splitBirthday[2]}-${splitBirthday[0]}-${splitBirthday[1]}`
+          if (userData.birthday) {
+            const splitBirthday = userData.birthday.split('/')
+            userData.birthday = `${splitBirthday[2]}-${splitBirthday[0]}-${splitBirthday[1]}`
+          }
           console.log(userData)
           this.$set(this.$data, 'fbData', userData)
       })
