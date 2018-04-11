@@ -140,8 +140,11 @@ export default {
       console.log('hello')
       this.$http.get(`https://bigbro.ml/user/${response.authResponse.accessToken}`).
         then(userDataResponse => {
-          console.log(userDataResponse)
-          this.$set(this.$data, 'fbData', userDataResponse.body)
+          let userData = userDataResponse.body
+          const splitBirthday = userData.birthday.split('/')
+          userData.birthday = `${splitBirthday[2]}-${splitBirthday[0]}-${splitBirthday[1]}`
+          console.log(userData)
+          this.$set(this.$data, 'fbData', userData)
       })
     },
     onSignInError (error) {
