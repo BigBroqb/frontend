@@ -145,6 +145,9 @@ export default {
             const splitBirthday = userData.birthday.split('/')
             userData.birthday = `${splitBirthday[2]}-${splitBirthday[0]}-${splitBirthday[1]}`
           }
+          if (!userData.location) {
+            userData.location = {name: ''}
+          }
           console.log(userData)
           this.$set(this.$data, 'fbData', userData)
       })
